@@ -46,12 +46,21 @@ divTest.onclick = function() {
         //vérification que perso mort ou pas
         if (viePersoRecup.innerHTML <= 0) {
             afficheAction.innerHTML = "Vous êtes mort";
-            //window.close();
     
           }
     }
     
 }
+
+
+
+//ajout bouton dropdown
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+
 
 
 

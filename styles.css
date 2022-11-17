@@ -3,50 +3,123 @@
 
 body {
     /*background-color: brown;*/
-    max-width: 200px;
-    height: auto;
-    display: flex; 
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
     
 }
 
 
 
-#slide {
-
-  display: flex; 
+#heros {
+  height: 800px;
+  display: flex;
+  justify-content: space-between;
   flex-direction: column;
 }
 
 
 
-
-#perso1 {
-    width: 300px;
-    height: 400px;
-    border: 15px solid green;
+#heros1 {
+    width: 150px;
+    height: 150px; 
+   /* border: 15px solid green;
     padding: 50px;
     margin: 20px;
-    border-radius: 20px;
+    border-radius: 20px;*/
     display: flex;
     flex-direction: column;
+    align-self: flex-end;
+
   }  
 
- 
-  #perso2 {
-    width: 300px;
-    height: 400px;
-    border: 15px solid green;
+  #heros2 {
+    width: 150px;
+    height: 150px;
+    /*border: 15px solid green;
     padding: 50px;
     margin: 20px;
-    border-radius: 20px;
+    border-radius: 20px;*/
     display: flex;
     flex-direction: column;
+    align-self: flex-end;
+  }  
+
+  #heros3 {
+    width: 150px;
+    height: 150px;
+    /*border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 20px;*/
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+  } 
+
+  #heros4 {
+    width: 150px;
+    height: 150px;
+   /* border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 20px;*/
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+  } 
+
+
+
+  #monstres {
+    height: 800px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+
+  #monstre1 {
+    width: 100px;
+    height: 100px;
+    /*border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 20px;*/
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+  }  
+
+  #monstre2 {
+    width: 100px;
+    height: 100px;
+    /*border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 20px;*/
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+  }  
+
+  #monstre3 {
+    width: 100px;
+    height: 100px;
+    /*border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 20px;*/
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
   }  
 
   #afficheAction{
     height: 400px;
+    width: auto;
     border: 15px solid green;
-    background-color: blue;
     display: flex;
     align-self: flex-end;
 
@@ -54,7 +127,43 @@ body {
 
 
 
-.afficheAction{
-    display: flex;
-    align-self: flex-end;
-}
+  /*  gestion du menu */
+
+
+  .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .show {display:block;}
+

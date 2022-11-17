@@ -1,0 +1,60 @@
+
+
+
+body {
+    /*background-color: brown;*/
+    max-width: 200px;
+    height: auto;
+    display: flex; 
+    
+}
+
+
+
+#slide {
+
+  display: flex; 
+  flex-direction: column;
+}
+
+
+
+
+#perso1 {
+    width: 300px;
+    height: 400px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+  }  
+
+ 
+  #perso2 {
+    width: 300px;
+    height: 400px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+  }  
+
+  #afficheAction{
+    height: 400px;
+    border: 15px solid green;
+    background-color: blue;
+    display: flex;
+    align-self: flex-end;
+
+  }
+
+
+
+.afficheAction{
+    display: flex;
+    align-self: flex-end;
+}

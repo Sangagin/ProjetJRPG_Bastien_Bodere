@@ -14,10 +14,31 @@ body {
 
 #heros {
   height: 800px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+
+
+}
+
+
+#herosLigne1 {
+  height: 800px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
+
+
+#herosLigne2 {
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 
 
 
@@ -74,6 +95,24 @@ body {
 
   #monstres {
     height: 800px;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+  }
+
+  #colonneMonstres1 {
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+
+
+  #colonneMonstres2 {
+    height: 800px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -127,6 +166,8 @@ body {
 
 
 
+
+
   /*  gestion du menu */
 
 
@@ -151,8 +192,8 @@ body {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
+   /* background-color: #f1f1f1;*/
+    min-width: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
@@ -166,4 +207,5 @@ body {
   }
 
   .show {display:block;}
+
 

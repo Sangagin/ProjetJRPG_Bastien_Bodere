@@ -178,9 +178,12 @@ function boutonAttaquePerso1() {
   }
   else {
     afficheAction.innerHTML = "C'est perdu !"
+    //n'arrive jamais normalement, le game over est calculé lors de la fonction de dégats de la riposte
   }
 
-
+  //appel fonction fin du tour
+    //ajouter une variable à chaque "bouton attaquer" qui s'incrémente
+    //dans la fonction fin du tour, ne faire fin que si incrément = nombre de joueurs vivants
 
   console.log("c'est le tour du héros " + tourActuel);
 

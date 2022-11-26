@@ -21,10 +21,10 @@
                             
                         
 
-                        <img src="https://thispersondoesnotexist.com/image" alt="texte en surbri" width=auto height=auto>
+                        <img id="vaisseau1" src="https://thispersondoesnotexist.com/image" alt="texte en surbri" width=auto height=auto>
 
                         <div id="stats1">
-                            <progress id="vieHeros1"  value="100" min="0" max="100">  </progress>
+                            <progress id="vieHeros1" class="redColo" value="100" min="0" max="100">  </progress>
                             <div id="pdvPerso1">100</div>                        
                         </div>
 
@@ -50,111 +50,22 @@
                         </div>
 
 
-<!--                                            
-                        <button id="bouton1" type="button">Attaquez !
-                                
-                            <style>
-                                .button{ border : 1px solid #000; padding : 5px; }
-                                .button:hover { background-color : gray;}
-                                .button:focus { border : 3px dotted green; }
-                                .button:active { color : #d4860c; }
-                            </style>
-                        
-                        </button>
-                                            
--->
-
-                        
-
-                    </div>
-
-
-
-                    <div id="heros2">
-                            
-                        
-
-                        <img src="https://thispersondoesnotexist.com/image" alt="texte en surbri" width=auto height=auto>
-                        
-                        <div id="stats2">
-                            <progress id="vieHeros"  value="100" min="0" max="100">  </progress>
-                            <div id="pdvPerso2">100</div>                        
-                        </div>
-
-                        <div id="menuPerso2">
-
-
-                            <button id="bouton2_0" type="button">Attaque
-                           
-                            
-                           </button>
-                           </br>
-                           <button id="bouton2_1" type="button">Défendre
-                               
-                               
-                           </button>
-                           </br>
-                           <button id="bouton2_2" type="button">Action Spéciale
-                               
-                               
-                           </button>
-
-                       </div>
-
 
 
                         
 
                     </div>
 
-            </div>
-            <div id="herosLigne2">
 
-                    <div id="heros3">
-                            
-                        
-
-                        <img src="https://thispersondoesnotexist.com/image" alt="texte en surbri" width=auto height=auto>
-
-                        <div id="stats3">
-                            <progress id="vieHeros3"  value="100" min="0" max="100">  </progress>
-                            <div id="pdvPerso3">100</div>                        
-                        </div>
-
-                        <div id="menuPerso3">
-
-
-                            <button id="bouton3_0" type="button">Attaque
-                           
-                            
-                           </button>
-                           </br>
-                           <button id="bouton3_1" type="button">Défendre
-                               
-                               
-                           </button>
-                           </br>
-                           <button id="bouton3_2" type="button">Action Spéciale
-                               
-                               
-                           </button>
-
-                       </div>
-
-
-
-                        
-
-                    </div>
 
                     <div id="heros4">
                             
                         
 
                         <img src="https://thispersondoesnotexist.com/image" alt="texte en surbri" width=auto height=auto>
-
+                        
                         <div id="stats4">
-                            <progress id="vieHeros4"  value="100" min="0" max="100">  </progress>
+                            <progress id="vieHeros4" class="redColo" value="100" min="0" max="100">  </progress>
                             <div id="pdvPerso4">100</div>                        
                         </div>
 
@@ -184,6 +95,83 @@
 
                     </div>
 
+            </div>
+            <div id="herosLigne2">
+
+                    <div id="heros2">
+                            
+                        
+
+                        <img src="https://thispersondoesnotexist.com/image" alt="texte en surbri" width=auto height=auto>
+
+                        <div id="stats2">
+                            <progress id="vieHeros2" class="redColo" value="100" min="0" max="100">  </progress>
+                            <div id="pdvPerso2">100</div>                        
+                        </div>
+
+                        <div id="menuPerso2">
+
+
+                            <button id="bouton2_0" type="button">Attaque
+                           
+                            
+                           </button>
+                           </br>
+                           <button id="bouton2_1" type="button">Défendre
+                               
+                               
+                           </button>
+                           </br>
+                           <button id="bouton2_2" type="button">Action Spéciale
+                               
+                               
+                           </button>
+
+                       </div>
+
+
+
+                        
+
+                    </div>
+
+                    <div id="heros3">
+                            
+                        
+
+                        <img src="https://thispersondoesnotexist.com/image" alt="texte en surbri" width=auto height=auto>
+
+                        <div id="stats3">
+                            <progress id="vieHeros3" class="redColo" value="100" min="0" max="100">  </progress>
+                            <div id="pdvPerso3">100</div>                        
+                        </div>
+
+                        <div id="menuPerso3">
+
+
+                            <button id="bouton3_0" type="button">Attaque
+                           
+                            
+                           </button>
+                           </br>
+                           <button id="bouton3_1" type="button">Défendre
+                               
+                               
+                           </button>
+                           </br>
+                           <button id="bouton3_2" type="button">Action Spéciale
+                               
+                               
+                           </button>
+
+                       </div>
+
+
+
+                        
+
+                    </div>
+
                 </div>
 
                                 <!-- partie ennemies-->
@@ -200,12 +188,10 @@
                         
 
 
-                    <img id="mob1" src="https://thishorsedoesnotexist.com" width=auto height=auto >
-                    Ceci est un monstre !
+                    <img id="mob1" src="https://thishorsedoesnotexist.com" onmouseover="infobulle(this)" width=auto height=auto >
                  </br>
 
                  <div id="statsMob1">
-                    <progress id="vieEnnemi1"  value="100" min="0" max="100">  </progress>
                     <div id="pdvMob1">100</div>                        
                 </div>
                 </div>
@@ -219,12 +205,10 @@
                             
 
 
-                        <img id="mob2" src="https://thishorsedoesnotexist.com" width=auto height=auto >
-                        Ceci est un monstre !
+                        <img id="mob2" src="https://thishorsedoesnotexist.com" onmouseover="infobulle(this)" width=auto height=auto >
                         </br>
 
                         <div id="statsMob2">
-                            <progress id="vieEnnemi2"  value="100" min="0" max="100">  </progress>
                             <div id="pdvMob2">100</div>                        
                         </div>
         
@@ -236,11 +220,9 @@
                             
 
 
-                        <img id="mob3" src="https://thishorsedoesnotexist.com" width=auto height=auto >
-                        Ceci est un monstre !
+                        <img id="mob3" src="https://thishorsedoesnotexist.com" onmouseover="infobulle(this)" width=auto height=auto >
                         </br>
                         <div id="statsMob3">
-                        <progress id="vieEnnemi3"  value="100" min="0" max="100">  </progress>
                         <div id="pdvMob3">100</div>                        
                     </div>
     

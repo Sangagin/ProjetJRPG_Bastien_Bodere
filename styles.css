@@ -160,6 +160,7 @@ body {
   #afficheAction{
     height: 400px;
     width: auto;
+    background-color: beige;
     border: 15px solid green;
     display: flex;
     align-self: flex-end;

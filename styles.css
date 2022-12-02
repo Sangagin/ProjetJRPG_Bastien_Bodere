@@ -116,7 +116,7 @@ body {
   #colonneMonstres2 {
     height: 800px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: column;
   }
 
@@ -131,6 +131,7 @@ body {
     display: flex;
     flex-direction: column;
     align-self: flex-end;
+    position: absolute;
   }  
 
   #monstre2 {

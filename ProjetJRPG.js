@@ -39,6 +39,7 @@ afficheAction = document.getElementById("afficheAction");
 
 var tourActuel = 0;
 herosVivants = 4;
+monstresVivants = 3;
 finCombat=false;
 finTour=false;
 ancienneActionHero1=0;
@@ -245,7 +246,7 @@ function riposte() {
     if (defencePerso1==true){
       degatsMob=degatsMob/2;
     }
-    afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre riposte !" + "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
+    afficheAction.innerHTML += "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
     //ici on enlève les dégats à la variable de vie du héros, et on actualise sa barre de vie
     viePerso1Recup.innerHTML = viePerso1Recup.innerHTML - degatsMob;
     rangeHeros1Recup.innerHTML = viePerso1Recup.innerHTML;
@@ -286,7 +287,7 @@ function riposte() {
       degatsMob=degatsMob/2;
     }
 
-    afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre riposte !" + "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
+    afficheAction.innerHTML += "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
     //ici on enlève les dégats à la variable de vie du héros, et on actualise sa barre de vie
     viePerso2Recup.innerHTML = viePerso2Recup.innerHTML - degatsMob;
     rangeHeros2Recup.innerHTML = viePerso2Recup.innerHTML;
@@ -326,7 +327,7 @@ function riposte() {
     if (defencePerso3==true){
       degatsMob=degatsMob/2;
     }
-    afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre riposte !" + "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
+    afficheAction.innerHTML += "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
     viePerso3Recup.innerHTML = viePerso3Recup.innerHTML - degatsMob;
     rangeHeros3Recup.innerHTML = viePerso3Recup.innerHTML;
     rangeHeros3Recup.value = viePerso3Recup.innerHTML;
@@ -363,7 +364,7 @@ function riposte() {
     if (defencePerso4==true){
       degatsMob=degatsMob/2;
     }
-    afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre riposte !" + "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
+    afficheAction.innerHTML += "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
     viePerso4Recup.innerHTML = viePerso4Recup.innerHTML - degatsMob;
     rangeHeros4Recup.innerHTML = viePerso4Recup.innerHTML;
     rangeHeros4Recup.value = viePerso4Recup.innerHTML;
@@ -412,6 +413,7 @@ function degatsSurMonstres() {
     if (vieMonstre1Recup.innerHTML <= 0) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 1 !";
       document.getElementById("mob1").hidden = true;
+      monstresVivants=monstresVivants-1;
       mortMonstre();
     }
   }
@@ -423,6 +425,7 @@ function degatsSurMonstres() {
     if (vieMonstre2Recup.innerHTML <= 0) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 2 !";
       document.getElementById("mob2").hidden = true;
+      monstresVivants=monstresVivants-1;
       mortMonstre();
     }
   }
@@ -434,6 +437,7 @@ function degatsSurMonstres() {
     if (vieMonstre3Recup.innerHTML <= 0) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 3 !";
       document.getElementById("mob3").hidden = true;
+      monstresVivants=monstresVivants-1;
       mortMonstre();
     }
   }
@@ -461,7 +465,7 @@ function mortMonstre() {
     console.log("tout gagné")
     victoire()
     //FIN CODE A GERER
-    window.stop()
+
     }
 
 }
@@ -473,12 +477,18 @@ function finTourPerso1() {
   document.getElementById("bouton1_0").hidden = true;
   document.getElementById("bouton1_1").hidden = true;
   document.getElementById("bouton1_2").hidden = true;
+  document.getElementById("vaisseau1").src = "img/vaisseau1.png"
 
 
   if(tourActuel==herosVivants) {
-    //appel riposte
+    afficheAction.innerHTML += "Félicitation, vous avez vaincu le monstre 3 !";
     console.log("c'est la RIPOSTE");
-    riposte();
+    for (i = 0; i < monstresVivants; i++) {
+      afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre " + (i+1) + " riposte !";
+      riposte();
+      console.log("riposte boucle")
+    }
+    
     tourActuel=0;
 
   }
@@ -489,23 +499,31 @@ function finTourPerso1() {
     document.getElementById("bouton2_0").hidden = false;
     document.getElementById("bouton2_1").hidden = false;
     document.getElementById("bouton2_2").hidden = false;
+    document.getElementById("vaisseau2").src = "img/vaisseau2Surbrillance.png"
+
 
   }
   else if (viePerso3Recup.innerHTML > 0){
     document.getElementById("bouton3_0").hidden = false;
     document.getElementById("bouton3_1").hidden = false;
     document.getElementById("bouton3_2").hidden = false;
+    document.getElementById("vaisseau3").src = "img/vaisseau3Surbrillance.png"
+
   }
   else if (viePerso4Recup.innerHTML > 0){
     document.getElementById("bouton4_0").hidden = false;
     document.getElementById("bouton4_1").hidden = false;
     document.getElementById("bouton4_2").hidden = false;
+    document.getElementById("vaisseau4").src = "img/vaisseau4Surbrillance.png"
+
   }  
   else if (viePerso1Recup.innerHTML > 0){
     //si jamais il ne reste plus que le héros 1 c'est de nouveau son tour
     document.getElementById("bouton1_0").hidden = false;
     document.getElementById("bouton1_1").hidden = false;
     document.getElementById("bouton1_2").hidden = false;
+    document.getElementById("vaisseau1").src = "img/vaisseau1Surbrillance.png"
+
   }
   else {
     afficheAction.innerHTML = "GAME OVER !"
@@ -519,11 +537,17 @@ function finTourPerso2() {
   document.getElementById("bouton2_0").hidden = true;
   document.getElementById("bouton2_1").hidden = true;
   document.getElementById("bouton2_2").hidden = true;
+  document.getElementById("vaisseau2").src = "img/vaisseau2.png"
+
 
   if(tourActuel==herosVivants) {
     //appel riposte
     console.log("c'est la RIPOSTE");
-    riposte();
+    for (i = 0; i < monstresVivants; i++) {
+      afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre " + (i+1) + " riposte !";
+      riposte();
+      console.log("riposte boucle")
+    }   
     tourActuel=0;
 
 
@@ -535,22 +559,30 @@ function finTourPerso2() {
     document.getElementById("bouton3_0").hidden = false;
     document.getElementById("bouton3_1").hidden = false;
     document.getElementById("bouton3_2").hidden = false;
+    document.getElementById("vaisseau3").src = "img/vaisseau3Surbrillance.png"
+
   }
   else if (viePerso4Recup.innerHTML > 0){
     document.getElementById("bouton4_0").hidden = false;
     document.getElementById("bouton4_1").hidden = false;
     document.getElementById("bouton4_2").hidden = false;
+    document.getElementById("vaisseau4").src = "img/vaisseau4Surbrillance.png"
+
   }  
   else if (viePerso1Recup.innerHTML > 0){
     document.getElementById("bouton1_0").hidden = false;
     document.getElementById("bouton1_1").hidden = false;
     document.getElementById("bouton1_2").hidden = false;
+    document.getElementById("vaisseau1").src = "img/vaisseau1Surbrillance.png"
+
   }
   else if(viePerso2Recup.innerHTML >0) {
     //si jamais il ne reste plus que le héros 2 c'est de nouveau son tour
     document.getElementById("bouton2_0").hidden = false;
     document.getElementById("bouton2_1").hidden = false;
     document.getElementById("bouton2_2").hidden = false;
+    document.getElementById("vaisseau2").src = "img/vaisseau2Surbrillance.png"
+
 
   }
   else {
@@ -563,12 +595,18 @@ function finTourPerso3() {
   document.getElementById("bouton3_0").hidden = true;
   document.getElementById("bouton3_1").hidden = true;
   document.getElementById("bouton3_2").hidden = true;
+  document.getElementById("vaisseau3").src = "img/vaisseau3.png"
+
 
 
   if(tourActuel==herosVivants) {
     //appel riposte
     console.log("c'est la RIPOSTE");
-    riposte();
+    for (i = 0; i < monstresVivants; i++) {
+      afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre " + (i+1) + " riposte !";
+      riposte();
+      console.log("riposte boucle")
+    }
     tourActuel=0;
 
 
@@ -578,16 +616,22 @@ function finTourPerso3() {
     document.getElementById("bouton4_0").hidden = false;
     document.getElementById("bouton4_1").hidden = false;
     document.getElementById("bouton4_2").hidden = false;
+    document.getElementById("vaisseau4").src = "img/vaisseau4Surbrillance.png"
+
   }  
   else if (viePerso1Recup.innerHTML > 0){
     document.getElementById("bouton1_0").hidden = false;
     document.getElementById("bouton1_1").hidden = false;
     document.getElementById("bouton1_2").hidden = false;
+    document.getElementById("vaisseau1").src = "img/vaisseau1Surbrillance.png"
+
   }
   else if(viePerso2Recup.innerHTML >0) {
     document.getElementById("bouton2_0").hidden = false;
     document.getElementById("bouton2_1").hidden = false;
     document.getElementById("bouton2_2").hidden = false;
+    document.getElementById("vaisseau2").src = "img/vaisseau2Surbrillance.png"
+
 
   }
   else if (viePerso3Recup.innerHTML > 0){
@@ -595,6 +639,8 @@ function finTourPerso3() {
     document.getElementById("bouton3_0").hidden = false;
     document.getElementById("bouton3_1").hidden = false;
     document.getElementById("bouton3_2").hidden = false;
+    document.getElementById("vaisseau3").src = "img/vaisseau3Surbrillance.png"
+
   }
   else {
     afficheAction.innerHTML = "GAME OVER !"
@@ -606,11 +652,17 @@ function finTourPerso4() {
   document.getElementById("bouton4_0").hidden = true;
   document.getElementById("bouton4_1").hidden = true;
   document.getElementById("bouton4_2").hidden = true;
+  document.getElementById("vaisseau4").src = "img/vaisseau4.png"
+
 
   if(tourActuel==herosVivants) {
     //appel riposte
     console.log("c'est la RIPOSTE");
-    riposte();
+    for (i = 0; i < monstresVivants; i++) {
+      afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre " + (i+1) + " riposte !";
+      riposte();
+      console.log("riposte boucle")
+    }
     tourActuel=0;
 
   }
@@ -620,23 +672,31 @@ function finTourPerso4() {
     document.getElementById("bouton1_0").hidden = false;
     document.getElementById("bouton1_1").hidden = false;
     document.getElementById("bouton1_2").hidden = false;
+    document.getElementById("vaisseau1").src = "img/vaisseau1Surbrillance.png"
+
   }
   else if(viePerso2Recup.innerHTML >0) {
     document.getElementById("bouton2_0").hidden = false;
     document.getElementById("bouton2_1").hidden = false;
     document.getElementById("bouton2_2").hidden = false;
+    document.getElementById("vaisseau2").src = "img/vaisseau2Surbrillance.png"
+
 
   }
   else if (viePerso3Recup.innerHTML > 0){
     document.getElementById("bouton3_0").hidden = false;
     document.getElementById("bouton3_1").hidden = false;
     document.getElementById("bouton3_2").hidden = false;
+    document.getElementById("vaisseau3").src = "img/vaisseau3Surbrillance.png"
+
   }
   else if (viePerso4Recup.innerHTML > 0){
     //si jamais il ne reste plus que le héros 4 c'est de nouveau son tour
     document.getElementById("bouton4_0").hidden = false;
     document.getElementById("bouton4_1").hidden = false;
     document.getElementById("bouton4_2").hidden = false;
+    document.getElementById("vaisseau4").src = "img/vaisseau4Surbrillance.png"
+
   }  
   else {
     afficheAction.innerHTML = "GAME OVER !"

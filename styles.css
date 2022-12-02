@@ -57,125 +57,153 @@ body {
 
   }  
 
-  #heros2 {
-    width: 150px;
-    height: 150px;
-    /*border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    border-radius: 20px;*/
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-  }  
+#heros2 {
+  width: 150px;
+  height: 150px;
+  /*border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 20px;*/
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}  
 
-  #heros3 {
-    width: 150px;
-    height: 150px;
-    /*border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    border-radius: 20px;*/
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-  } 
+#heros3 {
+  width: 150px;
+  height: 150px;
+  /*border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 20px;*/
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+} 
 
-  #heros4 {
-    width: 150px;
-    height: 150px;
-   /* border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    border-radius: 20px;*/
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-  } 
-
-
-
-  #monstres {
-    height: 800px;
-    width: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-  }
-
-  #colonneMonstres1 {
-    height: 800px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
+#heros4 {
+  width: 150px;
+  height: 150px;
+ /* border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 20px;*/
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+} 
 
 
 
-  #colonneMonstres2 {
-    height: 800px;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-  }
+#monstres {
+  height: 800px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#colonneMonstres1 {
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 
 
-  #monstre1 {
-    width: 100px;
-    height: 100px;
-    /*border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    border-radius: 20px;*/
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-    position: absolute;
-  }  
 
-  #monstre2 {
-    width: 100px;
-    height: 100px;
-    /*border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    border-radius: 20px;*/
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-  }  
+#colonneMonstres2 {
+  height: 800px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
 
-  #monstre3 {
-    width: 100px;
-    height: 100px;
-    /*border: 15px solid green;
-    padding: 50px;
-    margin: 20px;
-    border-radius: 20px;*/
-    display: flex;
-    flex-direction: column;
-    align-self: flex-end;
-  }  
 
-  #afficheAction{
-    height: 400px;
-    width: auto;
-    background-color: beige;
-    border: 15px solid green;
-    display: flex;
-    align-self: flex-end;
+#monstre1 {
+  width: 100px;
+  height: 100px;
+  /*border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 20px;*/
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+  position: absolute;
+}  
 
-  }
+#monstre2 {
+  width: 100px;
+  height: 100px;
+  /*border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 20px;*/
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}  
 
+#monstre3 {
+  width: 100px;
+  height: 100px;
+  /*border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+  border-radius: 20px;*/
+  display: flex;
+  flex-direction: column;
+  align-self: flex-end;
+}  
+
+#afficheAction{
+  height: 400px;
+  width: auto;
+  background-color: beige;
+  border: 15px solid green;
+  display: flex;
+  align-self: flex-end;
+
+}
 
 
 
 
-  /*  gestion de la progress bar de vie */
 
-  .redColo::-moz-progress-bar { background: red; }
-  .redColo::-webkit-progress-value { background: red; }
-  .redColo { color: red; }
+/*  gestion de la progress bar de vie */
+
+.redColo::-moz-progress-bar { background-color: red; }
+.redColo::-webkit-progress-value { background-color: red; }
+.redColo { color: red; }
+
+#vieHeros1{
+  background-color: red;
+}
+#vieHeros2{
+  background-color: red;
+}
+#vieHeros3{
+  background-color: red;
+}
+#vieHeros4{
+  background-color: red;
+}
+
+#manaHeros1{
+  background-color: aqua;
+}
+
+#manaHeros2{
+  background-color: aqua;
+}
+
+#manaHeros3{
+  background-color: aqua;
+}
+
+#manaHeros4{
+  background-color: aqua;
+}
 
 

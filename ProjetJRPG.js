@@ -15,6 +15,15 @@ rangeHeros2Recup = document.getElementById("vieHeros2");
 rangeHeros3Recup = document.getElementById("vieHeros3");
 rangeHeros4Recup = document.getElementById("vieHeros4");
 
+
+
+//récup de la barre de progress des héros
+manaHeros1Recup = document.getElementById("manaHeros1");
+manaHeros2Recup = document.getElementById("manaHeros2");
+manaHeros3Recup = document.getElementById("manaHeros3");
+manaHeros4Recup = document.getElementById("manaHeros4");
+
+
 //images des mobs pour selection
 monstre1 = document.getElementById("mob1");
 monstre2 = document.getElementById("mob2");
@@ -87,6 +96,7 @@ function intro() {
 //detection des appuis boutons
 document.getElementById("bouton1_0").addEventListener('click', boutonAttaquePerso1)
 document.getElementById("bouton1_1").addEventListener('click', boutonDefendrePerso1)
+document.getElementById("bouton1_2").addEventListener('click', boutonSpePerso1)
 
 document.getElementById("bouton2_0").addEventListener('click', boutonAttaquePerso2)
 document.getElementById("bouton2_1").addEventListener('click', boutonDefendrePerso2)
@@ -223,7 +233,40 @@ function boutonDefendrePerso4() {
 
 
 //boutons actions spéciales
+function boutonSpePerso1() {
+  if (manaHeros1Recup.value>=20){
+    afficheAction.innerHTML="Vaisseau 1 tire un énorme laser !" +"</br>" + "</br>" + "Inflige 5 de dégats à tous les ennemis !"
+    manaHeros1Recup.value=manaHeros1Recup.value-20;
+    vieMonstre1Recup.innerHTML = vieMonstre1Recup.innerHTML - 5;
+    vieMonstre2Recup.innerHTML = vieMonstre2Recup.innerHTML - 5;
+    vieMonstre3Recup.innerHTML = vieMonstre3Recup.innerHTML - 5;
+    //test si monstre 1 mort
+    if (vieMonstre1Recup.innerHTML <= 0) {
+      afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 1 !";
+      document.getElementById("mob1").hidden = true;
+      monstresVivants=monstresVivants-1;
+      mortMonstre();
+    }
+    if (vieMonstre2Recup.innerHTML <= 0) {
+      afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 2 !";
+      document.getElementById("mob2").hidden = true;
+      monstresVivants=monstresVivants-1;
+      mortMonstre();
+    }
+    if (vieMonstre3Recup.innerHTML <= 0) {
+      afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 3 !";
+      document.getElementById("mob3").hidden = true;
+      monstresVivants=monstresVivants-1;
+      mortMonstre();
+    }
+    tourActuel ++;
+    finTourPerso1();
+    console.log("c'est le tour du héros " + tourActuel);
+  }
 
+
+
+}
 
 
 

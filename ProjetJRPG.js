@@ -163,9 +163,9 @@ function infobulle() {
 //bouton attaque perso 1
 
 function boutonAttaquePerso1() {
-
   degatsSurMonstres();
   tourActuel ++;
+  //mise en buffer de l'action utilisée pour le tour prochain
   boutonUtilisePrecedentHeros1=0;
   console.log("action utilisée : " + boutonUtilisePrecedentHeros1);
   finTourPerso1();
@@ -179,9 +179,9 @@ function boutonAttaquePerso2() {
 
   degatsSurMonstres();
   tourActuel ++;
+  //mise en buffer de l'action utilisée pour le tour prochain
   boutonUtilisePrecedentHeros2=0;
   console.log("action utilisée : " + boutonUtilisePrecedentHeros2);
-
   finTourPerso2();
   console.log("c'est le tour du héros " + tourActuel);
 
@@ -193,6 +193,7 @@ function boutonAttaquePerso3() {
 
   degatsSurMonstres();
   tourActuel ++;
+  //mise en buffer de l'action utilisée pour le tour prochain
   boutonUtilisePrecedentHeros3=0;
   finTourPerso3();
 
@@ -206,6 +207,7 @@ function boutonAttaquePerso4() {
 
   degatsSurMonstres();
   tourActuel ++;
+  //mise en buffer de l'action utilisée pour le tour prochain
   boutonUtilisePrecedentHeros4=0;
   finTourPerso4();
 
@@ -219,6 +221,7 @@ function boutonAttaquePerso4() {
 //bouton défendre
 function boutonDefendrePerso1() {
   afficheAction.innerHTML = "Vous déployez votre bouclier et recevrez motié moins de dégats si les ennemis vous attaquent ce tour." ;
+  //activation de la défense
   defencePerso1=true;
   tourActuel ++;
   boutonUtilisePrecedentHeros1=1;
@@ -256,6 +259,7 @@ function boutonDefendrePerso4() {
 
 //boutons actions spéciales
 function boutonSpePerso1() {
+  //test s'il reste du mana
   if (manaHeros1Recup.value>=20){
     afficheAction.innerHTML="Vaisseau 1 tire un énorme laser !" +"</br>" + "</br>" + "Inflige 5 de dégats à tous les ennemis !"
     manaHeros1Recup.value=manaHeros1Recup.value-20;
@@ -299,15 +303,19 @@ function boutonSpePerso1() {
 
 
 function boutonSpePerso2() {
+  //test s'il reste du mana
   if (manaHeros2Recup.value>=20){
     afficheAction.innerHTML="Vaisseau 2 utilise ses nanobots pour se réparer !" +"</br>" + "</br>" + "Il récupère 10 points de vie !"
     manaHeros2Recup.value=manaHeros2Recup.value-20;
     
+    //soin 
     viePerso2Recup.innerHTML = viePerso2Recup.innerHTML - (-10);
 
+    //mise à jour des barres de vie
     rangeHeros2Recup.innerHTML = viePerso2Recup.innerHTML;
     rangeHeros2Recup.value = viePerso2Recup.innerHTML;
     
+    //si vie supérieure à 100 après soin, on remet à 100
     if(viePerso2Recup.innerHTML > 100) {
       viePerso2Recup.innerHTML = 100;
 
@@ -330,6 +338,7 @@ function boutonSpePerso2() {
 function boutonSpePerso3() {
   if (manaHeros2Recup.value>=20){
     afficheAction.innerHTML="Vaisseau 3 active son canon à particule, infligeant 15 dégtas à l'ennemi selectionné !"
+    manaHeros3Recup.value=manaHeros3Recup.value-20;
 
     if (mobSelection==1){
       vieMonstre1Recup.innerHTML = vieMonstre1Recup.innerHTML - 15;
@@ -384,7 +393,9 @@ function boutonSpePerso3() {
 function boutonSpePerso4() {
   if (manaHeros1Recup.value>=20){
     afficheAction.innerHTML="Vaisseau 4 projette des coques d'urgence, qui protègent ses alliés de la moitié des dégats jusqu'à leur prochain tour !"
-    
+    manaHeros4Recup.value=manaHeros4Recup.value-20;
+
+    //activation de toutes les défences, elles seront desactivées à la fin de la prochaine riposte
     defencePerso1=true;
     defencePerso2=true;
     defencePerso3=true;
@@ -401,10 +412,11 @@ function boutonSpePerso4() {
 
 
 //riposte des monstres
-//vu que j'arrive pas a finir un tour elle est pas implémentée, mais elle fonctionne
 
 function riposte() {
-  degatsMob =Math.floor(Math.random() * 10) + 1;
+  
+  //calcul des dégats su monstre
+  degatsMob =Math.floor(Math.random() * 100) + 1;
 
   //choix aléatoire du perso visé
   herosVise = Math.floor(Math.random() * 4) + 1;
@@ -435,16 +447,23 @@ function riposte() {
       document.getElementById("bouton1_1").hidden=true;
       document.getElementById("bouton1_2").hidden=true;
       document.getElementById("vieHeros1").hidden=true;
-      document.getElementById("pdvPerso1").hidden=true;
-      document.getElementById("vaisseau1").hidden=true;
+      document.getElementById("pdvPerso1").hidden=true; 
+      manaHeros1Recup.hidden=true;
+      document.getElementById("vaisseau1").src = "img/anims/C9JR.gif"
+      //on attends la fin du gif
+      setTimeout(function(){
+        document.getElementById("vaisseau1").hidden=true;         
+      },1500);
+
+      
       //on actualise le nombre de héros vivants
       herosVivants = herosVivants-1;
-      if(herosVivants==0) {
-
+      if(herosVivants<=0) {
+        //test de game over
         console.log("GAME OVER");
         gameOver();
       }
-      } 
+    } 
   } 
   //si le héros est mort mais qu'il a quand même été visé aléatoirement, on relance la fonction de riposte, pour qu'un autre héros soit visé
   else if (herosVise == 1 && viePerso1Recup.innerHTML <= 0){
@@ -477,11 +496,18 @@ function riposte() {
       document.getElementById("bouton2_2").hidden=true;
       document.getElementById("vieHeros2").hidden=true;
       document.getElementById("pdvPerso2").hidden=true;
-      document.getElementById("vaisseau2").hidden=true;
+      manaHeros2Recup.hidden=true;
+      document.getElementById("vaisseau2").src = "img/explosionVaisseau2.gif"
+      //on attends la fin du gif
+      setTimeout(function(){
+        document.getElementById("vaisseau2").hidden=true;         
+      },1500);
+
+
       herosVivants = herosVivants-1;
       
-      if(herosVivants==0) {
-
+      if(herosVivants<=0) {
+        //test de game over
         console.log("GAME OVER");
         gameOver();
       }
@@ -491,8 +517,6 @@ function riposte() {
   //si le héros est mort mais qu'il a quand même été visé aléatoirement, on relance la fonction de riposte, pour qu'un autre héros soit visé
   else if (herosVise == 2 && viePerso2Recup.innerHTML <= 0) {
     riposte();
-
-
   }
 
   else if (herosVise == 3 && viePerso3Recup.innerHTML > 0){
@@ -502,12 +526,13 @@ function riposte() {
       degatsMob=degatsMob/2;
     }
     afficheAction.innerHTML += "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
+    //ici on enlève les dégats à la variable de vie du héros, et on actualise sa barre de vie
     viePerso3Recup.innerHTML = viePerso3Recup.innerHTML - degatsMob;
     rangeHeros3Recup.innerHTML = viePerso3Recup.innerHTML;
     rangeHeros3Recup.value = viePerso3Recup.innerHTML;
     defencePerso3=false;
 
-
+    //vérification que perso mort ou pas suite à l'action de riposte
     if (viePerso3Recup.innerHTML <= 0) {
       afficheAction.innerHTML += "Vaisseau 3 détruit !";
       console.log("vaissea detruit");
@@ -516,11 +541,15 @@ function riposte() {
       document.getElementById("bouton3_2").hidden=true;
       document.getElementById("vieHeros3").hidden=true;
       document.getElementById("pdvPerso3").hidden=true;
-      document.getElementById("vaisseau3").hidden=true;
+      manaHeros3Recup.hidden=true;
       herosVivants = herosVivants-1;
-      
-      if(herosVivants==0) {
-
+      document.getElementById("vaisseau3").src = "img/explosionVaisseau3.gif"
+      //on attends la fin du gif
+      setTimeout(function(){
+        document.getElementById("vaisseau3").hidden=true;         
+      },1500);
+      if(herosVivants<=0) {
+        //test de game over
         console.log("GAME OVER");
         gameOver();
       }
@@ -539,12 +568,13 @@ function riposte() {
       degatsMob=degatsMob/2;
     }
     afficheAction.innerHTML += "</br>" + "</br>" + "Il vous inflige " + degatsMob + " de dégats !";
+    //ici on enlève les dégats à la variable de vie du héros, et on actualise sa barre de vie
     viePerso4Recup.innerHTML = viePerso4Recup.innerHTML - degatsMob;
     rangeHeros4Recup.innerHTML = viePerso4Recup.innerHTML;
     rangeHeros4Recup.value = viePerso4Recup.innerHTML;
     defencePerso4=false;
 
-
+    //vérification que perso mort ou pas suite à l'action de riposte
     if (viePerso4Recup.innerHTML <= 0) {
       afficheAction.innerHTML += "Vaisseau 4 détruit !";
       console.log("vaissea detruit");
@@ -553,11 +583,16 @@ function riposte() {
       document.getElementById("bouton4_2").hidden=true;
       document.getElementById("vieHeros4").hidden=true;
       document.getElementById("pdvPerso4").hidden=true;
-      document.getElementById("vaisseau4").hidden=true;     
+      manaHeros4Recup.hidden=true;
       herosVivants = herosVivants-1;
+      document.getElementById("vaisseau4").src = "img/explosionVaisseau4.gif"
+      //on attends la fin du gif
+      setTimeout(function(){
+        document.getElementById("vaisseau4").hidden=true;         
+      },1500);
       
-      if(herosVivants==0) {
-
+      if(herosVivants<=0) {
+        //test de game over
         console.log("GAME OVER");
         gameOver();
       }
@@ -571,6 +606,7 @@ function riposte() {
 
   }
 
+  //on réinitialise les défences
   defencePerso1=false;
   defencePerso2=false;
   defencePerso3=false;
@@ -581,7 +617,7 @@ function riposte() {
 
 function degatsSurMonstres() {
 
-
+  //calcul des dégats aléatoires
   degats =Math.floor(Math.random() * 10) + 1;
   afficheAction.innerHTML = "Vous avez infligé " + degats + " points de dégats au monstre" ;
 
@@ -592,8 +628,10 @@ function degatsSurMonstres() {
     if (vieMonstre1Recup.innerHTML <= 0 && monstre1vivant == true) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 1 !";
       document.getElementById("mob1").hidden = true;
+      //on actualise le nombre de monstres estants
       monstresVivants=monstresVivants-1;
       mortMonstre();
+      //on déclare le monstre mort, pour qu'il ne soit pas pris en compte dans l'utilisation du spécial du héros 1
       monstre1vivant = false;
     }
   }
@@ -607,6 +645,7 @@ function degatsSurMonstres() {
       document.getElementById("mob2").hidden = true;
       monstresVivants=monstresVivants-1;
       mortMonstre();
+      //on déclare le monstre mort, pour qu'il ne soit pas pris en compte dans l'utilisation du spécial du héros 1
       monstre2vivant=false;
     }
   }
@@ -620,6 +659,7 @@ function degatsSurMonstres() {
       document.getElementById("mob3").hidden = true;
       monstresVivants=monstresVivants-1;
       mortMonstre();
+      //on déclare le monstre mort, pour qu'il ne soit pas pris en compte dans l'utilisation du spécial du héros 1
       monstre3vivant = false;
     }
   }
@@ -644,9 +684,11 @@ function mortMonstre() {
     mobSelection=3;
   }
   else {
+    //si tous les monstres sont tués, c'est gagné !
     console.log("tout gagné");
     victoire();
     afficheAction.innerHTML = "Victoire !";
+    //exit pour quitter le programme, et vu que les boutons sont cachés par la fonction victoire, on peut plus relancer, comme prévu
     exit()
 
     }
@@ -666,7 +708,7 @@ function finTourPerso1() {
   if(tourActuel==herosVivants) {
     console.log("c'est la RIPOSTE");
     for (i = 0; i < monstresVivants; i++) {
-      afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre " + (i+1) + " riposte !";
+      afficheAction.innerHTML += "</br>" + "</br>" + "Le Monstre riposte !";
       riposte();
       console.log("riposte boucle")
     }
@@ -1079,6 +1121,5 @@ function victoire() {
   
 
 }
-
 
 

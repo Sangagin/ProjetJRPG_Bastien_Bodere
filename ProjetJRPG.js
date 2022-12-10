@@ -211,13 +211,13 @@ function boutonAttaquePerso2() {
   //mise en buffer de l'action utilisée pour le tour prochain
   boutonUtilisePrecedentHeros2=0;
   console.log("action utilisée : " + boutonUtilisePrecedentHeros2);
-  document.getElementById("vaisseau2").src = "img/anims/tirVaisseaux/tir_vaisseau_2.gif"
+  imgVaisseau2.src = "img/anims/tirVaisseaux/tir_vaisseau_2.gif"
   //on attends la fin du gif en désactivant tous les boutons, puis on les réactive et on passe au tour suivant
   bouttonAtk2.disabled=true;
   bouttonDef2.disabled=true;
   bouttonSpe2.disabled=true;
   setTimeout(function(){
-    document.getElementById("vaisseau2").src="img/vaisseau2.png"; 
+    imgVaisseau2.src="img/vaisseau2.png"; 
     finTourPerso2();
     bouttonAtk2.disabled=false;
     bouttonDef2.disabled=false;
@@ -237,13 +237,13 @@ function boutonAttaquePerso3() {
   tourActuel ++;
   //mise en buffer de l'action utilisée pour le tour prochain
   boutonUtilisePrecedentHeros3=0;
-  document.getElementById("vaisseau3").src = "img/anims/tirVaisseaux/tir_vaisseau_3.gif"
+  imgVaisseau3.src = "img/anims/tirVaisseaux/tir_vaisseau_3.gif"
   //on attends la fin du gif en désactivant tous les boutons, puis on les réactive et on passe au tour suivant
   bouttonAtk3.disabled=true;
   bouttonDef3.disabled=true;
   bouttonSpe3.disabled=true;
   setTimeout(function(){
-    document.getElementById("vaisseau3").src="img/vaisseau3.png"; 
+    imgVaisseau3.src="img/vaisseau3.png"; 
     finTourPerso3();
     bouttonAtk3.disabled=false;
     bouttonDef3.disabled=false;
@@ -262,13 +262,13 @@ function boutonAttaquePerso4() {
   tourActuel ++;
   //mise en buffer de l'action utilisée pour le tour prochain
   boutonUtilisePrecedentHeros4=0;
-  document.getElementById("vaisseau4").src = "img/anims/tirVaisseaux/tir_vaisseau_4.gif"
+  imgVaisseau4.src = "img/anims/tirVaisseaux/tir_vaisseau_4.gif"
   //on attends la fin du gif en désactivant tous les boutons, puis on les réactive et on passe au tour suivant
   bouttonAtk4.disabled=true;
   bouttonDef4.disabled=true;
   bouttonSpe4.disabled=true;
   setTimeout(function(){
-    document.getElementById("vaisseau4").src="img/vaisseau4.png"; 
+    imgVaisseau4.src="img/vaisseau4.png"; 
     finTourPerso4();
     bouttonAtk4.disabled=false;
     bouttonDef4.disabled=false;
@@ -333,14 +333,14 @@ function boutonSpePerso1() {
     //test si monstre 1 mort
     if (vieMonstre1Recup.innerHTML <= 0 && monstre1vivant == true) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 1 !";
-      document.getElementById("mob1").hidden = true;
+      monstre1.hidden = true;
       monstresVivants=monstresVivants-1;
       mortMonstre();
       monstre1vivant = false;
     }
     if (vieMonstre2Recup.innerHTML <= 0 && monstre2vivant == true) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 2 !";
-      document.getElementById("mob2").hidden = true;
+      monstre2.hidden = true;
       monstresVivants=monstresVivants-1;
       mortMonstre();
       monstre2vivant = false;
@@ -348,7 +348,7 @@ function boutonSpePerso1() {
     }
     if (vieMonstre3Recup.innerHTML <= 0 && monstre2vivant == true) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 3 !";
-      document.getElementById("mob3").hidden = true;
+      monstre3.hidden = true;
       monstresVivants=monstresVivants-1;
       mortMonstre();
       monstre3vivant = false;
@@ -409,7 +409,7 @@ function boutonSpePerso3() {
     //test si monstre 1 mort
       if (vieMonstre1Recup.innerHTML <= 0 && monstre1vivant == true) {
         afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 1 !";
-        document.getElementById("mob1").hidden = true;
+        monstre1.hidden = true;
         monstresVivants=monstresVivants-1;
         mortMonstre();
         monstre1vivant = false;
@@ -422,7 +422,7 @@ function boutonSpePerso3() {
       //test si monstre 2 mort
       if (vieMonstre2Recup.innerHTML <= 0 && monstre2vivant == true) {
         afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 2 !";
-        document.getElementById("mob2").hidden = true;
+        monstre2.hidden = true;
         monstresVivants=monstresVivants-1;
         mortMonstre();
         monstre2vivant=false;
@@ -435,7 +435,7 @@ function boutonSpePerso3() {
       //test si monstre 3 mort
       if (vieMonstre3Recup.innerHTML <= 0 && monstre3vivant == true) {
         afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 3 !";
-        document.getElementById("mob3").hidden = true;
+        monstre3.hidden = true;
         monstresVivants=monstresVivants-1;
         mortMonstre();
         monstre3vivant = false;
@@ -535,8 +535,8 @@ function riposte() {
       bouttonAtk1.hidden=true;
       bouttonDef1.hidden=true;
       bouttonSpe1.hidden=true;
-      document.getElementById("vieHeros1").hidden=true;
-      document.getElementById("pdvPerso1").hidden=true; 
+      rangeHeros1Recup.hidden=true;
+      viePerso1Recup.hidden=true; 
       manaHeros1Recup.hidden=true;
       imgVaisseau1.src = "img/anims/morts/explosionVaisseau1.gif"
       //on attends la fin du gif
@@ -603,13 +603,13 @@ function riposte() {
       bouttonAtk2.hidden=true;
       bouttonDef2.hidden=true;
       bouttonSpe2.hidden=true;
-      document.getElementById("vieHeros2").hidden=true;
-      document.getElementById("pdvPerso2").hidden=true;
+      rangeHeros2Recup.hidden=true;
+      viePerso2Recup.hidden=true;
       manaHeros2Recup.hidden=true;
-      document.getElementById("vaisseau2").src = "img/anims/morts/explosionVaisseau2.gif"
+      imgVaisseau2.src = "img/anims/morts/explosionVaisseau2.gif"
       //on attends la fin du gif
       setTimeout(function(){
-        document.getElementById("vaisseau2").hidden=true;         
+        imgVaisseau2.hidden=true;         
       },1500);
 
 
@@ -667,14 +667,14 @@ function riposte() {
       bouttonAtk3.hidden=true;
       bouttonDef3.hidden=true;
       bouttonSpe3.hidden=true;
-      document.getElementById("vieHeros3").hidden=true;
-      document.getElementById("pdvPerso3").hidden=true;
+      rangeHeros3Recup.hidden=true;
+      viePerso3Recup.hidden=true;
       manaHeros3Recup.hidden=true;
       herosVivants = herosVivants-1;
-      document.getElementById("vaisseau3").src = "img/anims/morts/explosionVaisseau3.gif"
+      imgVaisseau3.src = "img/anims/morts/explosionVaisseau3.gif"
       //on attends la fin du gif
       setTimeout(function(){
-        document.getElementById("vaisseau3").hidden=true;         
+        imgVaisseau3.hidden=true;         
       },1500);
       if(herosVivants<=0) {
         //test de game over
@@ -728,14 +728,14 @@ function riposte() {
       bouttonAtk4.hidden=true;
       bouttonDef4.hidden=true;
       bouttonSpe4.hidden=true;
-      document.getElementById("vieHeros4").hidden=true;
-      document.getElementById("pdvPerso4").hidden=true;
+      rangeHeros4Recup.hidden=true;
+      viePerso4Recup.hidden=true;
       manaHeros4Recup.hidden=true;
       herosVivants = herosVivants-1;
-      document.getElementById("vaisseau4").src = "img/anims/morts/explosionVaisseau4.gif"
+      imgVaisseau4.src = "img/anims/morts/explosionVaisseau4.gif"
       //on attends la fin du gif
       setTimeout(function(){
-        document.getElementById("vaisseau4").hidden=true;         
+        imgVaisseau4.hidden=true;         
       },1500);
       
       if(herosVivants<=0) {
@@ -765,7 +765,7 @@ function riposte() {
 function degatsSurMonstres() {
 
   //calcul des dégats aléatoires
-  degats =Math.floor(Math.random() * 100) + 1;
+  degats =Math.floor(Math.random() * 10) + 1;
   afficheAction.innerHTML = "Vous avez infligé " + degats + " points de dégats au monstre" ;
 
   //action des dégats en fonction de l'ennemi visé
@@ -774,7 +774,7 @@ function degatsSurMonstres() {
   //test si monstre 1 mort
     if (vieMonstre1Recup.innerHTML <= 0 && monstre1vivant == true) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 1 !";
-      document.getElementById("mob1").hidden = true;
+      monstre1.hidden = true;
       //on actualise le nombre de monstres estants
       monstresVivants=monstresVivants-1;
       mortMonstre();
@@ -789,7 +789,7 @@ function degatsSurMonstres() {
     //test si monstre 2 mort
     if (vieMonstre2Recup.innerHTML <= 0 && monstre2vivant == true) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 2 !";
-      document.getElementById("mob2").hidden = true;
+      monstre2.hidden = true;
       monstresVivants=monstresVivants-1;
       mortMonstre();
       //on déclare le monstre mort, pour qu'il ne soit pas pris en compte dans l'utilisation du spécial du héros 1
@@ -803,7 +803,7 @@ function degatsSurMonstres() {
     //test si monstre 3 mort
     if (vieMonstre3Recup.innerHTML <= 0 && monstre3vivant == true) {
       afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 3 !";
-      document.getElementById("mob3").hidden = true;
+      monstre3.hidden = true;
       monstresVivants=monstresVivants-1;
       mortMonstre();
       //on déclare le monstre mort, pour qu'il ne soit pas pris en compte dans l'utilisation du spécial du héros 1
@@ -818,15 +818,15 @@ function degatsSurMonstres() {
 function mortMonstre() {
 
   //changement de monstre selectionné et condition de victoire
-  if (!(document.getElementById("mob1").hidden)){
+  if (!(monstre1.hidden)){
     console.log("SELECT 1")
     mobSelection=1;
   }
-  else if (!(document.getElementById("mob2").hidden)) {
+  else if (!(monstre2.hidden)) {
     console.log("SELECT 2")
     mobSelection=2;
   }
-  else if (!(document.getElementById("mob3").hidden)) {
+  else if (!(monstre3.hidden)) {
     console.log("SELECT 3")
     mobSelection=3;
   }
@@ -868,7 +868,7 @@ function finTourPerso1() {
     bouttonAtk2.hidden = false;
     bouttonDef2.hidden = false;
     bouttonSpe2.hidden = false;
-    document.getElementById("vaisseau2").src = "img/vaisseau2Surbrillance.png"
+    imgVaisseau2.src = "img/vaisseau2Surbrillance.png"
     if(boutonUtilisePrecedentHeros2==0) {
       bouttonAtk2.hidden = true;
     }
@@ -885,7 +885,7 @@ function finTourPerso1() {
     bouttonAtk3.hidden = false;
     bouttonDef3.hidden = false;
     bouttonSpe3.hidden = false;
-    document.getElementById("vaisseau3").src = "img/vaisseau3Surbrillance.png"
+    imgVaisseau3.src = "img/vaisseau3Surbrillance.png"
     if(boutonUtilisePrecedentHeros3==0) {
       bouttonAtk3.hidden = true;
     }
@@ -901,7 +901,7 @@ function finTourPerso1() {
     bouttonAtk4.hidden = false;
     bouttonDef4.hidden = false;
     bouttonSpe4.hidden = false;
-    document.getElementById("vaisseau4").src = "img/vaisseau4Surbrillance.png"
+    imgVaisseau4.src = "img/vaisseau4Surbrillance.png"
     if(boutonUtilisePrecedentHeros4==0) {
       bouttonAtk4.hidden = true;
     }
@@ -942,7 +942,7 @@ function finTourPerso2() {
   bouttonAtk2.hidden = true;
   bouttonDef2.hidden = true;
   bouttonSpe2.hidden = true;
-  document.getElementById("vaisseau2").src = "img/vaisseau2.png"
+  imgVaisseau2.src = "img/vaisseau2.png"
 
 
   if(tourActuel==herosVivants) {
@@ -961,7 +961,7 @@ function finTourPerso2() {
     bouttonAtk3.hidden = false;
     bouttonDef3.hidden = false;
     bouttonSpe3.hidden = false;
-    document.getElementById("vaisseau3").src = "img/vaisseau3Surbrillance.png"
+    imgVaisseau3.src = "img/vaisseau3Surbrillance.png"
     if(boutonUtilisePrecedentHeros3==0) {
       bouttonAtk3.hidden = true;
     }
@@ -977,7 +977,7 @@ function finTourPerso2() {
     bouttonAtk4.hidden = false;
     bouttonDef4.hidden = false;
     bouttonSpe4.hidden = false;
-    document.getElementById("vaisseau4").src = "img/vaisseau4Surbrillance.png"
+    imgVaisseau4.src = "img/vaisseau4Surbrillance.png"
     if(boutonUtilisePrecedentHeros4==0) {
       bouttonAtk4.hidden = true;
     }
@@ -1010,7 +1010,7 @@ function finTourPerso2() {
     bouttonAtk2.hidden = false;
     bouttonDef2.hidden = false;
     bouttonSpe2.hidden = false;
-    document.getElementById("vaisseau2").src = "img/vaisseau2Surbrillance.png"
+    imgVaisseau2.src = "img/vaisseau2Surbrillance.png"
     if(boutonUtilisePrecedentHeros2==0) {
       bouttonAtk2.hidden = true;
     }
@@ -1033,7 +1033,7 @@ function finTourPerso3() {
   bouttonAtk3.hidden = true;
   bouttonDef3.hidden = true;
   bouttonSpe3.hidden = true;
-  document.getElementById("vaisseau3").src = "img/vaisseau3.png"
+  imgVaisseau3.src = "img/vaisseau3.png"
 
 
 
@@ -1051,7 +1051,7 @@ function finTourPerso3() {
     bouttonAtk4.hidden = false;
     bouttonDef4.hidden = false;
     bouttonSpe4.hidden = false;
-    document.getElementById("vaisseau4").src = "img/vaisseau4Surbrillance.png"
+    imgVaisseau4.src = "img/vaisseau4Surbrillance.png"
     if(boutonUtilisePrecedentHeros4==0) {
       bouttonAtk4.hidden = true;
     }
@@ -1083,7 +1083,7 @@ function finTourPerso3() {
     bouttonAtk2.hidden = false;
     bouttonDef2.hidden = false;
     bouttonSpe2.hidden = false;
-    document.getElementById("vaisseau2").src = "img/vaisseau2Surbrillance.png"
+    imgVaisseau2.src = "img/vaisseau2Surbrillance.png"
     if(boutonUtilisePrecedentHeros2==0) {
       bouttonAtk2.hidden = true;
     }
@@ -1101,7 +1101,7 @@ function finTourPerso3() {
         bouttonAtk3.hidden = false;
         bouttonDef3.hidden = false;
         bouttonSpe3.hidden = false;
-    document.getElementById("vaisseau3").src = "img/vaisseau3Surbrillance.png"
+        imgVaisseau3.src = "img/vaisseau3Surbrillance.png"
     if(boutonUtilisePrecedentHeros3==0) {
       bouttonAtk3.hidden = true;
     }
@@ -1123,7 +1123,7 @@ function finTourPerso4() {
   bouttonAtk4.hidden = true;
   bouttonDef4.hidden = true;
   bouttonSpe4.hidden = true;
-  document.getElementById("vaisseau4").src = "img/vaisseau4.png"
+  imgVaisseau4.src = "img/vaisseau4.png"
 
 
   if(tourActuel==herosVivants) {
@@ -1158,7 +1158,7 @@ function finTourPerso4() {
     bouttonAtk2.hidden = false;
     bouttonDef2.hidden = false;
     bouttonSpe2.hidden = false;
-    document.getElementById("vaisseau2").src = "img/vaisseau2Surbrillance.png"
+    imgVaisseau2.src = "img/vaisseau2Surbrillance.png"
     if(boutonUtilisePrecedentHeros2==0) {
       bouttonAtk2.hidden = true;
     }
@@ -1175,7 +1175,7 @@ function finTourPerso4() {
     bouttonAtk3.hidden = false;
     bouttonDef3.hidden = false;
     bouttonSpe3.hidden = false;
-    document.getElementById("vaisseau3").src = "img/vaisseau3Surbrillance.png"
+    imgVaisseau3.src = "img/vaisseau3Surbrillance.png"
     if(boutonUtilisePrecedentHeros3==0) {
       bouttonAtk3.hidden = true;
     }
@@ -1192,7 +1192,7 @@ function finTourPerso4() {
     bouttonAtk4.hidden = false;
     bouttonDef4.hidden = false;
     bouttonSpe4.hidden = false;
-    document.getElementById("vaisseau4").src = "img/vaisseau4Surbrillance.png"
+    imgVaisseau4.src = "img/vaisseau4Surbrillance.png"
     if(boutonUtilisePrecedentHeros4==0) {
       bouttonAtk4.hidden = true;
     }
@@ -1419,38 +1419,38 @@ function desacBoutons(){
 
 function gameOver() {
 
-  document.getElementById("mob1").hidden = true;
-  document.getElementById("mob2").hidden = true;
-  document.getElementById("mob3").hidden = true;
+  monstre1.hidden = true;
+  monstre2.hidden = true;
+  monstre3.hidden = true;
   document.body.style.backgroundImage = "url(img/gameOver.png)";
 }
 
 
 function victoire() {
-  document.getElementById("vieHeros1").hidden=true;
-  document.getElementById("pdvPerso1").hidden=true;
+  rangeHeros1Recup.hidden=true;
+  viePerso1Recup.hidden=true;
   imgVaisseau1.hidden=true;
   bouttonAtk1.hidden = true;
   bouttonDef1.hidden = true;
   bouttonSpe1.hidden = true;
 
-  document.getElementById("vieHeros2").hidden=true;
-  document.getElementById("pdvPerso2").hidden=true;
-  document.getElementById("vaisseau2").hidden=true;
+  rangeHeros2Recup.hidden=true;
+  viePerso2Recup.hidden=true;
+  imgVaisseau2.hidden=true;
   bouttonAtk2.hidden = true;
   bouttonDef2.hidden = true;
   bouttonSpe2.hidden = true;
 
-  document.getElementById("vieHeros3").hidden=true;
-  document.getElementById("pdvPerso3").hidden=true;
-  document.getElementById("vaisseau3").hidden=true;
+  rangeHeros3Recup.hidden=true;
+  viePerso3Recup.hidden=true;
+  imgVaisseau3.hidden=true;
   bouttonAtk3.hidden = true;
   bouttonDef3.hidden = true;
   bouttonSpe3.hidden = true;
 
-  document.getElementById("vieHeros4").hidden=true;
-  document.getElementById("pdvPerso4").hidden=true;
-  document.getElementById("vaisseau4").hidden=true;
+  rangeHeros4Recup.hidden=true;
+  viePerso4Recup.hidden=true;
+  imgVaisseau4.hidden=true;
   bouttonAtk4.hidden = true;
   bouttonDef4.hidden = true;
   bouttonSpe4.hidden = true;

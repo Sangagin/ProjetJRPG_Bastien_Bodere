@@ -89,6 +89,7 @@ window.onload = intro;
 
 
 
+nomMob="";
 
 
 
@@ -139,16 +140,19 @@ bouttonSpe4.addEventListener('click', boutonSpePerso4)
 
  //selection manuelle de l'adversaire visé
 
+
+
+
 monstre1.onclick = function() {
 
-  afficheAction.innerHTML = "Vous avez selectionné le Monstre 1 comme cible";
+  afficheAction.innerHTML = "Vous avez selectionné le triangle impossible comme cible";
   console.log("SELECT 1")
   mobSelection=1;
 }
 
 monstre2.onclick = function() {
 
-  afficheAction.innerHTML = "Vous avez selectionné le Monstre 2 comme cible";
+  afficheAction.innerHTML = "Vous avez selectionné la gueule de l'enfer comme cible";
   console.log("SELECT 2")
   mobSelection=2;
 
@@ -156,7 +160,7 @@ monstre2.onclick = function() {
 
 monstre3.onclick = function() {
 
-  afficheAction.innerHTML = "Vous avez selectionné le Monstre 3 comme cible";
+  afficheAction.innerHTML = "Vous avez selectionné l'observateur implacable comme cible";
   console.log("SELECT 3")
   mobSelection=3;
 
@@ -401,14 +405,14 @@ function boutonSpePerso2() {
 
 function boutonSpePerso3() {
   if (manaHeros2Recup.value>=20){
-    afficheAction.innerHTML="Vaisseau 3 active son canon à particule, infligeant 15 dégtas à l'ennemi selectionné !"
+    afficheAction.innerHTML="Vaisseau 3 active son canon à particule, infligeant 15 dégats à l'ennemi selectionné !"
     manaHeros3Recup.value=manaHeros3Recup.value-20;
 
     if (mobSelection==1){
       vieMonstre1Recup.innerHTML = vieMonstre1Recup.innerHTML - 15;
     //test si monstre 1 mort
       if (vieMonstre1Recup.innerHTML <= 0 && monstre1vivant == true) {
-        afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 1 !";
+        afficheAction.innerHTML = "Félicitation, vous avez vaincu le triangle impossible !";
         monstre1.hidden = true;
         monstresVivants=monstresVivants-1;
         mortMonstre();
@@ -421,7 +425,7 @@ function boutonSpePerso3() {
   
       //test si monstre 2 mort
       if (vieMonstre2Recup.innerHTML <= 0 && monstre2vivant == true) {
-        afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 2 !";
+        afficheAction.innerHTML = "Félicitation, vous avez vaincu la gueule de l'enfer !";
         monstre2.hidden = true;
         monstresVivants=monstresVivants-1;
         mortMonstre();
@@ -434,7 +438,7 @@ function boutonSpePerso3() {
         
       //test si monstre 3 mort
       if (vieMonstre3Recup.innerHTML <= 0 && monstre3vivant == true) {
-        afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 3 !";
+        afficheAction.innerHTML = "Félicitation, vous avez vaincu l'observateur implacable !";
         monstre3.hidden = true;
         monstresVivants=monstresVivants-1;
         mortMonstre();
@@ -765,15 +769,26 @@ function riposte() {
 function degatsSurMonstres() {
 
   //calcul des dégats aléatoires
+  if(mobSelection==1){
+    nomMob="au triangle impossible"
+  }
+  else if(mobSelection==2){
+    nomMob="à la gueule de l'enfer"
+  
+  }
+  else{
+    nomMob="à l'observateur implacable"
+  
+  }
   degats =Math.floor(Math.random() * 10) + 1;
-  afficheAction.innerHTML = "Vous avez infligé " + degats + " points de dégats au monstre" ;
+  afficheAction.innerHTML = "Vous avez infligé " + degats + " points de dégats " + nomMob ;
 
   //action des dégats en fonction de l'ennemi visé
   if (mobSelection==1){
     vieMonstre1Recup.innerHTML = vieMonstre1Recup.innerHTML - degats;
   //test si monstre 1 mort
     if (vieMonstre1Recup.innerHTML <= 0 && monstre1vivant == true) {
-      afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 1 !";
+      afficheAction.innerHTML = "Félicitation, vous avez vaincu le triangle impossible !";
       monstre1.hidden = true;
       //on actualise le nombre de monstres estants
       monstresVivants=monstresVivants-1;
@@ -788,7 +803,7 @@ function degatsSurMonstres() {
 
     //test si monstre 2 mort
     if (vieMonstre2Recup.innerHTML <= 0 && monstre2vivant == true) {
-      afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 2 !";
+      afficheAction.innerHTML = "Félicitation, vous avez vaincu la gueule de l'enfer !";
       monstre2.hidden = true;
       monstresVivants=monstresVivants-1;
       mortMonstre();
@@ -802,7 +817,7 @@ function degatsSurMonstres() {
       
     //test si monstre 3 mort
     if (vieMonstre3Recup.innerHTML <= 0 && monstre3vivant == true) {
-      afficheAction.innerHTML = "Félicitation, vous avez vaincu le monstre 3 !";
+      afficheAction.innerHTML = "Félicitation, vous avez vaincu l'observateur implacable !";
       monstre3.hidden = true;
       monstresVivants=monstresVivants-1;
       mortMonstre();
